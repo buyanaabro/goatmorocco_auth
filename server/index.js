@@ -4,7 +4,7 @@ const cors = require('cors');
 const passport = require('passport');
 const expressSession = require('express-session');
 const cookieParser = require('cookie-parser');
-const bycrypt = require('bcrypt'); 
+const bcrypt = require('bcrypt'); 
 const db = require('./db');
 
 const app = express();
@@ -40,7 +40,7 @@ app.post('/register', (req, res) => {
             res.send("User already exists");
         }
         if (rows.length === 0) {
-            const hashedPassword = await bycrypt.hash(req.body.password, 10);
+            const hashedPassword = await bcrypt.hash(req.body.password, 10);
             db.query(query, [req.body.username, req.body.email, hashedPassword], (err, rows) => {
                 if (err) {
                     console.log(err);

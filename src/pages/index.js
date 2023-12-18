@@ -49,11 +49,28 @@ export default function Home() {
 
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center flex-col">
-      <div className='flex-row space-x-12'>
-          <Link className='px-8 py-4 rounded-md bg-amber-300' href="/register">Register</Link>
-          <Link className='px-8 py-4 rounded-md bg-amber-300' href="/login">Login</Link>
-          <Link className='px-8 py-4 rounded-md bg-cyan-600' href="/profile">Profile</Link>
+    <div className="w-screen h-screen flex justify-center items-center flex-col bg-red-300">
+      <div className="flex-row space-x-12">
+        <div className="w-96 h-96 flex rounded-xl justify-center items-center bg-white backdrop-blur-sm flex-col space-y-4">
+          <Link
+            className="px-8 py-4 w-2/3 rounded-md bg-amber-300 flex justify-center"
+            href="/register"
+          >
+            Register
+          </Link>
+          <Link
+            className="px-8 py-4 w-2/3 rounded-md bg-amber-300 flex justify-center"
+            href="/login"
+          >
+            Login
+          </Link>
+          <Link
+            className="px-8 py-4 w-2/3 rounded-md bg-cyan-600 flex justify-center"
+            href="/profile"
+          >
+            Profile
+          </Link>
+        </div>
       </div>
     </div>
   )
