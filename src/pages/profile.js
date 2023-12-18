@@ -18,19 +18,23 @@ export default function Profile() {
     }
     const handleLogout = () => {
         axios({
-            method: 'post',
+            method: 'get',
             withCredentials: true,
             url: 'http://localhost:3001/logout',
         })
-            .then((res) => {
-                console.log(res.data);
-                setUser(null);
-            })
+            .then(req.session.destroy((err) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).send('Internal Server Error');
+            }
+            res.clearCookie('XSRF-TOKEN');
+
+            res.status(200).send('User logged out');
+        }))
             .catch((err) => {
-                console.log(err);
+                console.log(err)
             });
     };
-
 
     return (
         <div className='w-screen h-screen flex justify-center items-center'>

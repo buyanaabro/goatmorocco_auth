@@ -37,7 +37,7 @@ export default function Home() {
       },
       withCredentials: true,
       url: 'http://localhost:3001/login'
-    }).then(res => {console.log(res)}).catch(err => {console.log(err)})
+    }).then(res => {console.log(res.config.xsrfCookieName)}).catch(err => {console.log(err)})
   }
   const getUser  = () => {
     axios({

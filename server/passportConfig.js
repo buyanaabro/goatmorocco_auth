@@ -54,8 +54,22 @@ passport.use(
         })
     }) 
 
+
     app.post('/logout', (req, res) => {
+        // Assuming you're using a session-based authentication strategy
         req.logout();
-        res.send('User logged out');
+
+        // Assuming you're using a session and want to destroy it
+        req.session.destroy((err) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).send('Internal Server Error');
+            }
+
+            // Clear the CSRF token cookie
+            res.clearCookie('XSRF-TOKEN');
+
+            res.status(200).send('User logged out');
+        });
     });
 }
