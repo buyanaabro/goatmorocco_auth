@@ -18,7 +18,8 @@ export default function Login() {
           withCredentials: true,
           url: 'http://localhost:3001/login'
         }).then(res => {console.log(res)}).catch(err => {console.log(err)})
-        .then((res) => router.push("/"))
+        .then((res) => alert("successfully logged in"))
+        .then((res) => router.push("/profile"))
     }
 
 
