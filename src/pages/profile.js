@@ -23,7 +23,7 @@ export default function Profile() {
                 <h1 className='text-2xl font-semibold'>Profile</h1>
                 <h1 className='text-xl'>Username: {user}</h1>
                 <h1><Link className='px-8 py-2 rounded-md bg-cyan-600' href="/">Return to Home page</Link></h1>
-                <h1 href="/"><Link>Log out</Link></h1>
+                <h1><Link href="/">Log out</Link></h1>
             </div>
         </div>
     )
