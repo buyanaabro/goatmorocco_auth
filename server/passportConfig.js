@@ -53,4 +53,9 @@ passport.use(
             done(null, userInfo);
         })
     }) 
+
+    app.post('/logout', (req, res) => {
+        req.logout();
+        res.send('User logged out');
+    });
 }

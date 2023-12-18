@@ -72,6 +72,11 @@ app.get('/getUser', (req, res) => {
   res.send(req.user);
 })
 
+app.post('/logout', (req, res) => {
+  req.logout();
+  res.send("logged out successfully");
+})
+
 
 
 //start server 
